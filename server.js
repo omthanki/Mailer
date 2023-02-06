@@ -4,6 +4,8 @@ const express = require('express')
 const app = express()
 const hbs = require("hbs")
 
+require("./db/conn")
+
 app.set("view engine", "hbs")
 
 app.use(urlencoded({extended: false}))

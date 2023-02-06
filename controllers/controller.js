@@ -2,11 +2,13 @@ const nodemailer = require("nodemailer")
 
 module.exports.home = async (req, res) => {
 
-    if (req.method == "get") {
+    if (req.method == "GET") {
         res.render("index")
     }
 
-    if (req.method == "post") {
+    if (req.method == "POST") {
+
+        const emailAdd = req.body.useremail
 
         try {
 
@@ -22,7 +24,7 @@ module.exports.home = async (req, res) => {
 
             let message = {
                 from: process.env.EMAIL, // sender address
-                to: "othanki874@rku.ac.in, baz@example.com", // list of receivers
+                to: emailAdd, // list of receivers
                 subject: "Node Mailer", // Subject line
                 text: "Hello", // plain text body
                 html: "<b>Hello world?</b>", // html body

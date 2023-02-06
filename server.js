@@ -1,10 +1,12 @@
 require('dotenv').config()
+const { urlencoded } = require('express')
 const express = require('express')
 const app = express()
 const hbs = require("hbs")
 
 app.set("view engine", "hbs")
 
+app.use(urlencoded({extended: false}))
 
 const route = require("./routes/routes")
 app.use(route)
